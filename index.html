@@ -7,6 +7,7 @@
     <style>
         body {
             margin: 0;
+            overflow: hidden; /* Hide any overflow caused by the zoom */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,6 +20,7 @@
             height: auto;
             filter: brightness(0) contrast(1);
             animation: fadeIn 5s ease-in-out forwards;
+            transform-origin: center; /* Ensure zoom is centered */
             transition: transform 1s ease, filter 1s ease;
         }
 
@@ -37,9 +39,9 @@
     </style>
 </head>
 <body>
-    <img id="image" src="image.jpg" alt="Displayed Image">
+    <img id="image" src="IMG-20240822-WA0044.jpg" alt="Displayed Image">
     <audio id="audio" autoplay loop>
-        <source src="song.mp3" type="audio/mpeg">
+        <source src="דיבוב מצחיק לצבי הנינג'ה 2 (1).mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -54,8 +56,8 @@
 
         audio.addEventListener('ended', () => {
             volume = Math.min(volume * 2, 1); // Double the volume, max 1.0
-            zoomLevel += 0.1; // Increase zoom
-            brightnessLevel += 0.1; // Increase brightness
+            zoomLevel += 0.5; // Increase zoom significantly
+            brightnessLevel += 0.2; // Increase brightness significantly
 
             audio.volume = volume;
             image.style.transform = `scale(${zoomLevel})`;
